@@ -16,4 +16,4 @@ RUN \
 
 # Install bower
 RUN \
-  yarn add global bower
+  npm install -g bower
