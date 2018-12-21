@@ -1,4 +1,4 @@
-FROM node:8.6
+FROM node:8.14
 MAINTAINER Mirko Akov
 
 # Install Chrome
@@ -11,7 +11,10 @@ RUN \
 
 # Install yarn
 RUN \
-  curl -o- -L https://yarnpkg.com/install.sh | bash && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+  apt-get update -yqqq && \
+  apt-get -y install yarn && \
   export PATH=$HOME/.yarn/bin:$PATH
 
 # Install bower
