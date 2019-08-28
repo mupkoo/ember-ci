@@ -1,4 +1,4 @@
-FROM node:8.14
+FROM node:8.16
 MAINTAINER Mirko Akov
 
 # Install Chrome
